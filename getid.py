@@ -5,6 +5,8 @@ from urllib.parse import quote  # 导入quote函数进行URL编码
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
 BASE_URL=os.getenv('BASE_URL')
 MASTER_PASS=os.getenv('MASTER_PASS')
 
