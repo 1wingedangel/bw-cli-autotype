@@ -26,7 +26,7 @@ def copy_to_clipboard(data):
 def extract_random_substring(data):
     if not data:
         return "", "", ""
-    start = random.randint(1, len(data)-2)
+    start = random.randint(1, len(data)-4)
     end = random.randint(start+1, len(data)-2)
     substring = data[start:end]
     head = data[:start]
@@ -45,9 +45,13 @@ def handle_operation(item_id, operation):
             copy_to_clipboard(target_data)
             print("copy success")
         else:
-            substring, head, tail = extract_random_substring(target_data)
-            copy_to_clipboard(substring)
-            print(json.dumps({"head": head, "tail": tail}))
+            if len(data) > 5:
+                substring, head, tail = extract_random_substring(target_data)
+                copy_to_clipboard(substring)
+                print(json.dumps({"head": head, "tail": tail}))
+            else:
+                copy_to_clipboard(target_data)
+                print("Strings are less than 6. Copy Strings instead.")
     elif operation == 'copytotp':
         url = f"{BASE_URL}/object/totp/{item_id}"
         response = requests.get(url)
