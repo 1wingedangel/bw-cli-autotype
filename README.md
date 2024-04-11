@@ -17,5 +17,6 @@ pip install pyperclip requests python-dotenv
 在 python 脚本所在目录新建文件`.env`，在里面添加 bw-cli 通过 `serve` 命令暴露的API服务器的基本地址。
 
 ```properties
-BASE_URL=“http://127.0.0.1:8087”
+BASE_URL="http://127.0.0.1:8087"
+MASTER_PASS="123456"
 ```
