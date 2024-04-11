@@ -51,7 +51,7 @@ def handle_operation(item_id, operation):
                 print(json.dumps({"head": head, "tail": tail}))
             else:
                 copy_to_clipboard(target_data)
-                print("Strings are less than 6. Copy Strings instead.")
+                print(json.dumps({"head": "", "tail": ""}))
     elif operation == 'copytotp':
         url = f"{BASE_URL}/object/totp/{item_id}"
         response = requests.get(url)
